@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="/">All Assessments</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/create">Create Assessment</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/completed">Completed Assessments</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/uncompleted">Uncompleted Assessments</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <main class="form-signin w-100 m-auto">
+        <form action="{{ url_for('create_assessment') }}" method="POST">
+            {{ form.csrf_token }}
+            <h1 class="h3 mb-3 fw-normal">Create Assessment</h1>
+
+            <div class="wtf-form">
+                {{ form.title.label }}<br>{{ form.title(size=20) }}
+            </div>
+
+            <div class="wtf-form">
+                {{ form.deadline.label }}<br>{{ form.deadline() }}
+            </div>
+
+            <div class="wtf-form">
+                {{ form.module_code.label }}<br>{{ form.module_code() }}
+            </div>
+
+            <div class="wtf-form">
+                {{ form.intro.label }}<br>{{ form.intro() }}
+            </div>
+
+            <div class="wtf-form">
+                {{ form.submit() }}
+            </div>
+
+
+{#            <div class="form-floating">#}
+{#                <input type="text" class="form-control" id="floatingInput" name="title">#}
+{#                <label for="floatingInput">Title</label>#}
+{#            </div>#}
+{#            <div class="form-floating">#}
+{#                <input type="date" class="form-control" id="floatingInput" name="deadline">#}
+{#                <label for="floatingInput">Deadline</label>#}
+{#            </div>#}
+{#            <div class="form-floating">#}
+{#                <input type="text" class="form-control" id="floatingInput" name="module_code">#}
+{#                <label for="floatingInput">Module Code</label>#}
+{#            </div>#}
+{#            <div class="form-floating">#}
+{#                <input type="text" class="form-control" id="floatingInput" name="intro">#}
+{#                <label for="floatingInput">Introduction</label>#}
+{#            </div>#}
+{##}
+{#            <button class="w-100 btn btn-lg btn-primary" type="submit">Create</button>#}
+
+        </form>
+    </main>
+{% endblock %}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToDoList</title>
+
+    <link rel="stylesheet" , href="{{ url_for("static", filename="css/bootstrap.min.css") }}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" , href="{{ url_for("static", filename="css/base.css") }}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">ToDoList</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                {% block nav %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">All Assessments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create">Create Assessment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/completed">Completed Assessments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/uncompleted">Uncompleted Assessments</a>
+                    </li>
+                {% endblock %}
+            </ul>
+            {#            <form class="d-flex" role="search">#}
+            {#                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">#}
+            {#                <button class="btn btn-outline-success" type="submit">Search</button>#}
+            {#            </form>#}
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+
+<script src="{{ url_for("static", filename="js/bootstrap.bundle.min.js") }}"></script>
+
+
+</body>
+</html>
